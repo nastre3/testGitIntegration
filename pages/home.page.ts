@@ -12,9 +12,9 @@ class HomePage {
     this.page = page;
     this.getStartedBtn = page.locator('#get-started')
     this.headingText = page.locator('text=Think different. Make different.')
-    this.homeLink = page.locator('#primary-menu:has-text("Home")')
-    this.searchIcon = page.locator('//*[@id="header-action"]//*[@class="tg-icon tg-icon-search"]')
-    this.navLinks = page.locator('#primary-menu li[id*=menu]')
+    this.homeLink = page.locator('#menu-item-489:has-text("Home")') // 1st option: #menu-item-489 >> text=Home; 2nd option: #menu-item-489:has-text("Home")
+    this.searchIcon = page.locator('//div[@class=\'zak-header-actions zak-header-actions--desktop\']//a[@class=\'zak-header-search__toggle\']')
+    this.navLinks = page.locator('#zak-primary-nav li[id*=menu]')
   }
 
   async navigate() {

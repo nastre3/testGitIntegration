@@ -14,7 +14,7 @@ test.describe('Home', () => {
     await expect(page).toHaveTitle('Practice E-Commerce Site – SDET Unicorns');
   })
 
-  test.skip('Open About page and verify title', async ({ page }) => {
+  test('Open About page and verify title', async ({ page }) => {
     // open url
     await page.goto('https://practice.sdetunicorns.com/about');
 
@@ -27,7 +27,7 @@ test.describe('Home', () => {
 
     // click the button
     await homePage.getStartedBtn.click()
-    
+
     // verify url has #get-started
     await expect(page).toHaveURL(/.*#get-started/);
   })
