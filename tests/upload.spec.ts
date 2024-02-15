@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import CartPage from '../pages/cart.page';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+// node.js path package
 const path = require('path');
 
 test.describe('Upload File', () => {
@@ -11,31 +12,34 @@ test.describe('Upload File', () => {
   for (const name of fileName) {
     test(`should upload a ${name} file`, async ({ page }) => {
       cartPage = new CartPage(page);
-  
+
       // Open url
       await page.goto("https://practice.sdetunicorns.com/cart/");
-  
+
       // provide test file path
+      // __dirname - current directory,
+      // data - folder with files in root
+      // name - name of file
       const filePath = path.join(__dirname, `../data/${name}`);
-      
+
       // upload test file
       cartPage.uploadComponent().uploadFile(filePath);
-  
+
       // assertion
       await expect(cartPage.uploadComponent().successTxt)
         .toContainText('uploaded successfully', {timeout: 10000});
     })
   }
 
-  
 
-  test.skip('should upload a test file on a hidden input field', async ({ page }) => {
+
+  test('should upload a test file on a hidden input field', async ({ page }) => {
     // Open url
     await page.goto("https://practice.sdetunicorns.com/cart/");
 
     // provide test file path
     const filePath = path.join(__dirname, '../data/logotitle.png');
-    
+
     // DOM manipulation
     await page.evaluate(() => {
       const selector = document.querySelector('input#upfile_1');

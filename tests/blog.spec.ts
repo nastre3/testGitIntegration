@@ -12,7 +12,7 @@ test.describe('Blog', () => {
 
     // loop through the list and assert the char length > 10
     for (const el of await blogPage.recentPostsList.elementHandles()) {
-      expect(((await el.textContent())!.trim()).length).toBeGreaterThan(10)
+      expect(((await el.textContent()).trim()).length).toBeGreaterThan(10)
     }
 
     // assert the total length = 5

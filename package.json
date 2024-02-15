@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "runTests": "npx playwright test tests/home.spec.ts"
+    "runTests": "npx playwright test tests/upload.spec.ts",
+    "debugTests1": "DEBUG=pw:api npx playwright test tests/home.spec.ts",
+    "debugTests2": "PWDEBUG=1 npx playwright test tests/home.spec.ts"
   },
   "keywords": [],
   "author": "",
